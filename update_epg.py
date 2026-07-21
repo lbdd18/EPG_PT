@@ -135,6 +135,7 @@ def to_xmltv_time(iso_utc):
 
 
 def build_xmltv(channels, schedule_items, logo_files):
+    cache_bust = datetime.now(LISBON).strftime("%Y%m%d")
     tv = ET.Element(
         "tv",
         {
@@ -148,7 +149,12 @@ def build_xmltv(channels, schedule_items, logo_files):
         ET.SubElement(chan_el, "display-name").text = ch["Name"]
         logo_file = logo_files.get(sid)
         if logo_file:
-            ET.SubElement(chan_el, "icon", {"src": f"{LOGOS_BASE_URL}/{logo_file}"})
+            # O parametro de versao muda a cada execucao para forcar clientes
+            # (Jellyfin, etc.) a re-descarregar o logo em vez de servirem uma
+            # copia antiga em cache do mesmo URL indefinidamente.
+            ET.SubElement(
+                chan_el, "icon", {"src": f"{LOGOS_BASE_URL}/{logo_file}?v={cache_bust}"}
+            )
 
     for item in schedule_items:
         sid = item.get("AiringChannel", {}).get("ServiceId")
