@@ -12,6 +12,9 @@ Adiciona como fonte EPG (tipo XMLTV) o URL "raw" deste ficheiro:
 https://raw.githubusercontent.com/lbdd18/EPG_PT/main/guide.xml
 ```
 
+O `guide.xml` inclui `<icon>` por canal, apontando para `Logos/`, para poderes
+usar "Set Logos from EPG" em massa no Dispatcharr depois do Auto-Match.
+
 ## Correr manualmente
 
 ```bash
