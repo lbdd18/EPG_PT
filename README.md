@@ -1,4 +1,4 @@
-# nos-tv-epg
+# EPG_PT
 
 Guia de programação (EPG) da NOS TV em formato [XMLTV](https://wiki.xmltv.org/index.php/XMLTVFormat), gerado a partir do guia público (modo "convidado", sem login) da API da NOS.
 
@@ -9,7 +9,7 @@ Atualizado automaticamente todos os dias por um [GitHub Action](.github/workflow
 Adiciona como fonte EPG (tipo XMLTV) o URL "raw" deste ficheiro:
 
 ```
-https://raw.githubusercontent.com/lucianodias089/nos-tv-epg/main/guide.xml
+https://raw.githubusercontent.com/lbdd18/EPG_PT/main/guide.xml
 ```
 
 ## Correr manualmente
